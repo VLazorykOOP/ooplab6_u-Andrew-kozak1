@@ -1,4 +1,4 @@
-﻿#include "Lab6Example.h"
+#include "Lab6Example.h"
 #include <iostream>
 namespace SpaceExample1 {
     ///Задача. Створити дві ієрархії класів без віртуального та з віртуальним спадкуванням, 
@@ -15,7 +15,7 @@ namespace SpaceExample1 {
         Base() : dat(1) {}
         Base(int d) : dat(d) {}
     };
-  
+
     class D1 : protected Base
     {
     protected:
@@ -63,7 +63,7 @@ namespace SpaceExample1 {
       //      std::cout << "B12VV::D1V::Base::dat =  " << D12::D2::Base::dat << std::endl;
         }
     };
-    
+
     //
     //  virtual
     //
