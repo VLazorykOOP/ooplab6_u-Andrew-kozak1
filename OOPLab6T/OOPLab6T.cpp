@@ -77,3 +77,71 @@ int main() {
 
     return 0;
 }
+//Завдання 3
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+protected:
+    string name;
+    int age;
+public:
+    Person(string n, int a) {
+        name = n;
+        age = a;
+    }
+    virtual void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+class Woman : virtual public Person {
+protected:
+    string gender;
+public:
+    Woman(string n, int a) : Person(n, a) {
+        gender = "female";
+    }
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << ", Gender: " << gender << endl;
+    }
+};
+
+class Employee : virtual public Person {
+protected:
+    int id;
+public:
+    Employee(string n, int a, int i) : Person(n, a) {
+        id = i;
+    }
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << ", ID: " << id << endl;
+    }
+};
+
+class WomanEmployee : public Woman, public Employee {
+private:
+    string department;
+public:
+    WomanEmployee(string n, int a, int i, string d) : Person(n, a), Woman(n, a), Employee(n, a, i) {
+        department = d;
+    }
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << ", Gender: " << gender << ", ID: " << id << ", Department: " << department << endl;
+    }
+};
+
+int main() {
+    Person p("John", 25);
+    Woman w("Mary", 30);
+    Employee e("Bob", 35, 1234);
+    WomanEmployee we("Alice", 40, 5678, "Marketing");
+
+    p.display();
+    w.display();
+    e.display();
+    we.display();
+
+    return 0;
+}
